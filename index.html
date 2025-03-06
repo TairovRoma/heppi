@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сюрприз на 8 Марта</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffebf0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .heart {
+            font-size: 50px;
+            color: #e63946;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .letter-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            background: #e63946;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        .letter-link:hover {
+            background: #c82333;
+        }
+        .letter {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .letter.show {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .letter p {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .letter.show p:nth-child(1) {
+            animation: fadeIn 1s ease-in-out forwards 0.5s;
+        }
+        .letter.show p:nth-child(2) {
+            animation: fadeIn 1s ease-in-out forwards 1.5s;
+        }
+        .letter.show p:nth-child(3) {
+            animation: fadeIn 1s ease-in-out forwards 2.5s;
+        }
+        .letter.show p:nth-child(4) {
+            animation: fadeIn 1s ease-in-out forwards 3.5s;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="heart">💖</div>
+        <h2>С 8 Марта, моя дорогая!</h2>
+        <p>У меня есть для тебя сюрприз...</p>
+        <a href="#" class="letter-link">Открыть письмо 💌</a>
+    </div>
+    
+    <div class="letter">
+        <p>Дорогая  💖</p>
+        <p>С 8 Марта! Пусть этот день будет таким же прекрасным, как ты. <br>
+        Пусть улыбка не сходит с твоего лица, а счастье наполняет сердце. 💖</p>
+        <p>Ты самая лучшая, и я благодарен за каждый миг рядом с тобой!</p>
+        <p>С любовью,💖</p>
+    </div>
+    
+    <script>
+        document.querySelector('.letter-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            let letter = document.querySelector('.letter');
+            letter.classList.add('show');
+        });
+    </script>
+</body>
+</html>
